@@ -1,0 +1,18 @@
+.navbar {
+  height: 80px;
+  width: 100%;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+}
+ul {
+  display: flex;
+  align-items: center;
+}
+li {
+  list-style: none;
+}
+li a,
+.nav-logo {
+  text-decoration: none;
+}

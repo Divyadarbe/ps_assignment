@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useState, useContext, useMemo } from "react";
+import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
+import "./App.css";
+import Admin from "./layouts/Admin";
+import Auth from "./layouts/Auth";
+import Home from "./components/Home";
+import Header from "./common/Header";
+import Footer from "./common/Footer";
+import routes from "./routes";
+
+export const CartContext = createContext();
 
 function App() {
+  const [cartData, setCartData] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartContext.Provider value={{ cartData, setCartData }}>
+      <Header />
+      <Switch>
+        {/* <Route exact path="/" component={Home} />
+          <Route path="/admin" render={(props) => <Admin {...props} />} />
+          <Route path="/auth" render={(props) => <Auth {...props} />} /> */}
+        {routes.map((r, key) => (
+          <Route path={r.path} exact component={r.component} />
+        ))}
+      </Switch>
+      <Footer />
+    </CartContext.Provider>
   );
 }
 
