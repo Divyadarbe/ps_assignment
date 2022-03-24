@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
+
 const Login = () => {
   const [data, setData] = useState({
     email: "",
@@ -16,12 +17,12 @@ const Login = () => {
     });
   };
   return (
-    <div style={{ display: "flex" }}>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <h1>Login</h1>
-        <p>Get access to your Orders, Wishlist and Recommendations</p>
+    <div className="login-container">
+      <div className="heading-container" >
+        <h1 className="heading">Login</h1>
+        <p className="description">Get access to your Orders, Wishlist and Recommendations</p>
       </div>
-      <form method="post" onSubmit={handleSubmit}>
+      <form method="post" onSubmit={handleSubmit} className="login-form">
         <div className="text_field">
           <input
             type="email"

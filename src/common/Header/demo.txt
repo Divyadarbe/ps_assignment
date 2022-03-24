@@ -1,18 +1,18 @@
 header {
-  width: 100%;
-  box-shadow: 0 5px 4px -5px rgb(138, 136, 136);
-  padding: 0 6rem;
+  max-width: 120rem;
+  margin: auto auto;
 }
 .nav-bar {
-  height: 8rem;
+  height: 70px;
   width: 100%;
   background-color: #fff;
   display: flex;
   align-items: center;
+  box-shadow: 0 5px 4px -5px;
 }
 .logo {
   height: 6rem;
-  margin-right: 6rem;
+  margin-right: 3.2rem;
 }
 .menu-container {
   width: 100%;
@@ -22,16 +22,9 @@ header {
 }
 .nav-item {
   font-size: 1.4rem;
-  color: rgb(138, 136, 136);
-  font-weight: 600;
+  color: black;
+  font-weight: 500;
   padding: 0 0.5rem;
-}
-.nav-item-signin {
-  color: black !important;
-  font-size: small;
-}
-.nav-item-signin-right {
-  margin-right: 10px;
 }
 .menu-right > div {
   display: flex;
@@ -41,14 +34,13 @@ header {
 }
 .menu-right > button {
   outline: none;
-  padding: 1.7rem 3rem;
+  padding: 1.1rem 1.6rem;
   border: none;
   display: flex;
   align-items: center;
-  background: #f1f1dd;
 }
 .cart-icon {
   color: rgba(168, 4, 73, 0.938);
-  font-size: 2rem;
+  font-size: large;
   margin-right: 1rem;
 }

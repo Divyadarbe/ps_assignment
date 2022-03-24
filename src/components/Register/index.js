@@ -28,12 +28,12 @@ const Register = () => {
     }
   };
   return (
-    <div style={{ display: "flex" }}>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <h1>Signup</h1>
-        <p>We do not share your personal details with anyone.</p>
+    <div className="register-container">
+      <div className="heading-container">
+        <h1 className="heading">Signup</h1>
+        <p className="description">We do not share your personal details with anyone.</p>
       </div>
-      <form method="post" onSubmit={handleSubmit}>
+      <form method="post" onSubmit={handleSubmit} className="register-form">
         <div className="text_field">
           <input
             type="text"
@@ -93,7 +93,7 @@ const Register = () => {
           <span></span>
           <label>Confirm Password</label>
         </div>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Signup" />
       </form>
     </div>
   );

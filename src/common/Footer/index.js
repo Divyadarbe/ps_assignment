@@ -1,8 +1,12 @@
 import React from "react";
-import "./style.css"
+import "./style.css";
 const Footer = () => {
   return (
-    <footer>Copyright @ 2011-2018 Sabka Bazar Grocery Supplies Pvt Ltd</footer>
+    <div className="footer-container">
+      <footer>
+        Copyright @ 2011-2018 Sabka Bazar Grocery Supplies Pvt Ltd
+      </footer>
+    </div>
   );
 };
 export default Footer;

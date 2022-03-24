@@ -2,12 +2,23 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../App";
 import Modal from "./components/Modal";
+import { FaShoppingCart } from "react-icons/fa";
 import "./style.css";
 
 const Header = () => {
   const { cartData, setCartData } = useContext(CartContext);
   const [show, setShow] = useState(false);
+  const [count, setCount] = useState(0);
   console.log("Cart data", cartData);
+
+  useEffect(() => {
+    let cart_count = 0;
+    for (let i = 0; i < cartData.length; i++) {
+      cart_count = cart_count + cartData[i].quantity;
+    }
+    setCount(cart_count);
+  }, [cartData]);
+
   const showModal = () => {
     setShow(true);
   };
@@ -16,33 +27,40 @@ const Header = () => {
   };
   return (
     <header>
-      <nav className="navbar">
-        <Link to="/" className="nav-logo">
-          Logo
+      <nav className="nav-bar">
+        <Link to="/">
+          <img
+            className="logo"
+            src={process.env.PUBLIC_URL + `/static/images/logo_2x.png`}
+            alt="SabkaBazar"
+          />
         </Link>
-        <ul>
-          <li>
+        <div className="menu-container">
+          <div className="menu-left">
             <Link className="nav-item" to="/">
               Home
             </Link>
-          </li>
-          <li>
             <Link className="nav-item" to="/products">
               Products
             </Link>
-          </li>
-          <li style={{ display: "flex", flexDirection: "column" }}>
+          </div>
+          <div className="menu-right">
             <div>
-              <Link className="nav-item" to="/auth/login">
-                Sign in
+              <Link
+                className="nav-item-signin nav-item-signin-right"
+                to="/login"
+              >
+                SignIn
               </Link>
-              <Link className="nav-item" to="/auth/register">
+              <Link className=" nav-item-signin" to="/register">
                 Register
               </Link>
             </div>
-            <button onClick={showModal}>Cart {cartData.length} items</button>
-          </li>
-        </ul>
+            <button className="cart-button" onClick={showModal}>
+              <FaShoppingCart className="cart-icon" /> {count} items
+            </button>
+          </div>
+        </div>
       </nav>
       <Modal
         show={show}

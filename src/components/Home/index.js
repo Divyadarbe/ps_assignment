@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import Carousel from "./components/Carousel";
+import { CarouselItem } from "./components/Carousel";
 import "./home.css";
 
 const Home = ({ history }) => {
   const [categories, setCategories] = useState([]);
+  const [banners, setBanners] = useState([]);
   const [error, setError] = useState("");
 
   const fetchCategories = async () => {
@@ -11,8 +14,15 @@ const Home = ({ history }) => {
       .then((data) => setCategories(data))
       .catch((err) => setError(err));
   };
-
+  const fetchBanners = async () => {
+    await fetch("http://localhost:5000/banners")
+      .then((response) => response.json())
+      .then((data) => setBanners(data))
+      .catch((err) => setError(err));
+  };
+  console.log(banners);
   useEffect(() => {
+    fetchBanners();
     fetchCategories();
   }, []);
 
@@ -20,8 +30,23 @@ const Home = ({ history }) => {
     e.preventDefault();
     history.push("/products");
   };
+  console.log("Cate",categories)
   return (
     <section className="home-container">
+      <div className="carousel-container">
+        <Carousel>
+          {banners &&
+            banners.length > 0 &&
+            banners.map((banner) => (
+              <CarouselItem key={banner.id}>
+                <img
+                  src={process.env.PUBLIC_URL + banner.bannerImageUrl}
+                  alt="Banner"
+                />
+              </CarouselItem>
+            ))}
+        </Carousel>
+      </div>
       {categories &&
         categories.length > 0 &&
         categories.map((category) => (
@@ -33,11 +58,9 @@ const Home = ({ history }) => {
             />
             <div className="category-description">
               <h3>{category.name}</h3>
-              <span className="category-description">
-                {category.description}
-              </span>
+              <span>{category.description}</span>
               <button
-                className="btn"
+                className="category-button"
                 onClick={handleButtonClick}
               >{`Explore ${category.key}`}</button>
             </div>

@@ -106,14 +106,17 @@ const Products = () => {
               <div className="product-name-container">
                 <span className="product-name">{product.name}</span>
               </div>
+              <div className="image-container">
+                <img
+                  src={process.env.PUBLIC_URL + product.imageURL}
+                  width="200"
+                  height="200"
+                />
 
-              <img
-                src={process.env.PUBLIC_URL + product.imageURL}
-                width="200"
-                height="200"
-              />
-
-              <span className="product-description">{product.description}</span>
+                <span className="product-description">
+                  {product.description}
+                </span>
+              </div>
               <div className="product-footer">
                 <span>MRP Rs.{product.price}</span>
                 <button

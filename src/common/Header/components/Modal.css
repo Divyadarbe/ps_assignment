@@ -1,27 +1,122 @@
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width:100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-  }
-  
-  .modal-main {
-    position:fixed;
-    background: white;
-    width: 80%;
-    height: auto;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-  }
-  
-  .display-block {
-    display: block;
-  }
-  
-  .display-none {
-    display: none;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: fixed;
+  background: #f1f1dd;
+  width: 40rem;
+  /* height: auto; */
+  /* min-height: 40rem; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background: black;
+  padding: 10px;
+  font-size: 1.6rem;
+}
+.close-icon {
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+}
+.count {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-left: 5px;
+}
+.cart-footer {
+  padding: 10px;
+  background: white;
+}
+.btn {
+  border: none;
+  outline: none;
+  background: rgba(168, 4, 73, 0.938);
+  color: white;
+  width: 100%;
+}
+.empty-cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40rem;
+}
+.empty-cart-text1 {
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.empty-cart-text2 {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.cart-text-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.text-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cproduct-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: white;
+  margin: 10px 0;
+}
+.product-image {
+  margin-right: 10px;
+}
+.cproduct-name {
+  font-size: medium;
+  font-weight: bold;
+}
+.cqty {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 10px;
+}
+.cprice-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.cbtn {
+  border: none;
+  outline: none;
+  background: rgba(168, 4, 73, 0.938);
+  border-radius: 50%;
+  padding: 4px 6px;
+  color: white;
+  /* margin:0 5px; */
+}
+.btn-top-margin {
+  margin-top: 10px;
+}
